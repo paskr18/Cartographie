@@ -16,6 +16,8 @@
        <input type="text"> <br>
        <label> Commune </label> <br>
        <input type="text"> <br>
+       <label> Ville </label> <br>
+       <input type="text"> <br>
        <label> Latitude </label> <br>
        <input type="text"> <br>
        <label> Longitude </label> <br>
