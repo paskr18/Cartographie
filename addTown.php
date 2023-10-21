@@ -9,7 +9,7 @@
 
   <body>
      <?php include("insertTown.php"); ?>
-     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?> method="post"">
+     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
        <label> Département </label> <br>
        <input type="text"> <br>
        <label> Commune </label> <br>

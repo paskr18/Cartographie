@@ -9,7 +9,7 @@
 
   <body>
      <?php include("insertUser.php"); ?>
-     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?> method="post"">
+     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
        <label> Nom d'utilisateur </label> <br>
        <input type="text"> <br>
        <label> Mot de passe </label> <br>

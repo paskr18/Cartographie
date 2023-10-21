@@ -9,7 +9,7 @@
 
   <body>
      <?php include("insertInstallation.php"); ?>
-     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?> method="post"">
+     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
        <label> Nom </label> <br>
        <input type="text"> <br>
        <label> Département </label> <br>
