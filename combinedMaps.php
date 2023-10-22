@@ -10,5 +10,9 @@
   <body>
      <?php include "header.php"; ?>
      <h1> Cartes combinées </h1>
+     <script>
+       const myConstant = document.getElementById("combinedMaps");
+       myConstant.style.backgroundColor="#FF0000";
+     </script>
   </body>
 </html>

@@ -10,5 +10,9 @@
   <body>
      <?php include "header.php"; ?>
      <h1> Tableau de bord </h1>
+     <script>
+       const myConstant = document.getElementById("dashboard");
+       myConstant.style.backgroundColor="#FF0000";
+     </script>
   </body>
 </html>

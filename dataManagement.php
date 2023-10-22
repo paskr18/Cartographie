@@ -10,6 +10,9 @@
   <body>
      <?php include "header.php"; ?>
      <h1> Gestion de données </h1>
-     
+     <script>
+       const myConstant = document.getElementById("dataManagement");
+       myConstant.style.backgroundColor="#FF0000";
+     </script>
   </body>
 </html>

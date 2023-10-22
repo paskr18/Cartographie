@@ -10,5 +10,9 @@
   <body>
      <?php include "header.php"; ?>
      <h1> Administration </h1>
+     <script>
+       const myConstant = document.getElementById("administration");
+       myConstant.style.backgroundColor="#FF0000";
+     </script>
   </body>
 </html>
