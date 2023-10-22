@@ -1,6 +1,6 @@
 <?php
-  $user=$password=$passwordConfirm=$email="";
-  $userERR=$passwordERR=$passwordConfirmERR=$emailERR="";
+  $firstName=$lastName=$user=$password=$passwordConfirm=$email="";
+  $firstNameERR=$lastNameERR=$userERR=$passwordERR=$passwordConfirmERR=$emailERR="";
 
   function testInput($data){
       $data=trim($data);
@@ -10,6 +10,26 @@
    }
 
   if($_SERVER["REQUEST_METHOD"] == "POST"){
+    if(empty($_POST["firstName"])){
+       $firstNameERR = "Ce champ doit être renseigné.";
+    } else {
+      if(!preg_match("/^[a-zA-Z- ]*$/", $_POST["firstName"])){
+        $firstNameERR = "Seuls les lettres et les chiffres sont acceptés.";
+      } else {
+        $user=testInput($_POST["firstName"]);
+      }
+    }
+
+    if(empty($_POST["lastName"])){
+       $lastNameERR = "Ce champ doit être renseigné.";
+    } else {
+      if(!preg_match("/^[a-zA-Z- ]*$/", $_POST["lastName"])){
+        $lastNameERR = "Seuls les lettres et les chiffres sont acceptés.";
+      } else {
+        $user=testInput($_POST["lastName"]);
+      }
+    }
+
     if(empty($_POST["user"])){
        $userERR = "Ce champ doit être renseigné.";
     } else {
@@ -47,7 +67,7 @@
     if(empty($_POST["email"])){
       $emailERR = "Ce champ doit être renseigné.";
     } else {
-      if(!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
+      if(!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i", $_POST["email"])){
         $emailERR = "Format incorrect.";
       } else {
         $email=testInput($_POST["email"]);

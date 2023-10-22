@@ -10,6 +10,10 @@
   <body>
      <?php include("insertUser.php"); ?>
      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+       <label for "firstName> Prénom </label> <br>
+       <input type="text" id="firstName" name="firstName" value="<?php echo $firstName ; ?>"> <span class="errors"> <?php echo $firstNameERR; ?> </span> <br>
+       <label for "lastName> Nom de famille </label> <br>
+       <input type="text" id="lastName" name="lastName" value="<?php echo $lastName ; ?>"> <span class="errors"> <?php echo $lastNameERR; ?> </span> <br>
        <label for "user"> Nom d'utilisateur </label> <br>
        <input type="text" id="user" name="user" value="<?php echo $user; ?>"> <span class="errors"> <?php echo $userERR; ?> </span> <br>
        <label for "password"> Mot de passe </label> <br>
