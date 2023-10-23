@@ -14,5 +14,27 @@
        const myConstant = document.getElementById("dataManagement");
        myConstant.style.backgroundColor="#FF0000";
      </script>
+     <div class="divAdmin">
+        <h2> Gestion des agglomérations </h2>
+        <a href="listTown.php"> <div class="divAdminSub">
+          <img src="images/icons/standard.png" alt="">
+          <p> Liste </p>
+        </div> <a>
+        <a href="addTown.php"> <div class="divAdminSub">
+          <img src="images/icons/standard.png" alt="">
+          <p> Ajout </p>
+        </div> </a>
+     </div>
+     <div class="divAdmin">
+        <h2> Gestion des installations </h2>
+        <a href="listInstallation.php"> <div class="divAdminSub">
+          <img src="images/icons/standard.png" alt="">
+          <p> Liste </p>
+        </div> <a>
+        <a href="addInstallation.php"> <div class="divAdminSub">
+          <img src="images/icons/standard.png" alt="">
+          <p> Ajout </p>
+        </div> <a>
+     </div>
   </body>
 </html>

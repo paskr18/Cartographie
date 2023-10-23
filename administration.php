@@ -14,5 +14,16 @@
        const myConstant = document.getElementById("administration");
        myConstant.style.backgroundColor="#FF0000";
      </script>
+     <div class="divAdmin">
+        <h2> Gestion des utilisateurs </h2>
+        <a href="listUser.php" style="text-decoration:none;"> <div class="divAdminSub">
+          <img src="images/icons/standard.png" alt="">
+          <p> Liste </p>
+        </div> </a>
+       <a href="addUser.php" style="text-decoration:none;"> <div class="divAdminSub">
+          <img src="images/icons/standard.png" alt="">
+          <p> Ajout </p>
+        </div> </a>
+     </div>
   </body>
 </html>

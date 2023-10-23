@@ -8,6 +8,12 @@
   </head>
 
   <body>
+     <?php include "header.php"; ?>
+     <script>
+       const myConstant = document.getElementById("administration");
+       myConstant.style.backgroundColor="#FF0000";
+     </script>
+     <h1> Ajout d'utilisateur </h1>
      <?php include("scripts/insertUser.php"); ?>
      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
        <label for "firstName> Prénom </label> <br>

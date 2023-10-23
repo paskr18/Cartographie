@@ -2,10 +2,38 @@
     padding: 0;
     font-family: verdana; }
 
+.infos { width: 50%;
+        float: left ;
+        display: block; }
+
+.mapInfos { display: block;
+           height: 350px;
+           width: 100%; }
+
+.divAdmin { border-bottom: 1px solid #AAAAAA;
+            width: 90%;
+            margin-left: 5%;
+            display: block;
+            height: 150px; }
+
+.divAdminSub { width: 100px;
+               float: left; 
+               display: block;
+               border: 1px solid #888888;
+               border-radius: 5px;
+               height: 80px;
+               margin: 10px; }
+
+#map { width: 50%; 
+       height: 250px; 
+       float: left; }
+
 label { font-weight: bold;
         font-size: 1em; }
 
 form { padding: 15px 15px; }
+
+h1, h2, h3 { margin-left: 15px; }
 
 nav { height: 40px;
       background-color: #222222; 
