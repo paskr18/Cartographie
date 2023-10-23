@@ -8,7 +8,7 @@
   </head>
 
   <body>
-     <?php include("insertTown.php"); ?>
+     <?php include("scripts/insertTown.php"); ?>
      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
        <label for "ville"> Ville </label> <br>
        <input type="text" id="ville" name="ville" value="<?php echo $ville;?>"> <span class="errors"> <?php echo $villeERR; ?> </span> <br>

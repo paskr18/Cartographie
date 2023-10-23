@@ -8,7 +8,7 @@
   </head>
 
   <body>
-     <?php include("insertInstallation.php"); ?>
+     <?php include("scripts/insertInstallation.php"); ?>
      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
        <label for "installation"> Centre de santé </label> <br>
        <input type="text" id="installation" name="installation" value="<?php echo $installation;?>"> <span class="errors"> <?php echo $installationERR; ?> </span> <br>

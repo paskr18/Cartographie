@@ -8,7 +8,7 @@
   </head>
 
   <body>
-     <?php include("insertTown.php"); ?>
+     <?php include("scripts/insertTown.php"); ?>
      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
        <label> Département </label> <br>
        <input type="text"> <br>

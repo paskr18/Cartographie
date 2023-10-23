@@ -8,7 +8,7 @@
   </head>
 
   <body>
-     <?php include("signin.php"); ?>
+     <?php include("scripts/signin.php"); ?>
      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
        <label for "user"> Utilisateur </label> <br>
        <input type="text" id="user" name="user" placeholder="Utilisateur" value="<?php echo $user; ?>"> <span class="errors"><?php echo $userERR; ?> </span> <br>

@@ -8,7 +8,7 @@
   </head>
 
   <body>
-     <?php include("insertUser.php"); ?>
+     <?php include("scripts/insertUser.php"); ?>
      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
        <label for "firstName> Prénom </label> <br>
        <input type="text" id="firstName" name="firstName" value="<?php echo $firstName ; ?>"> <span class="errors"> <?php echo $firstNameERR; ?> </span> <br>

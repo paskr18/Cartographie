@@ -8,7 +8,7 @@
   </head>
 
   <body>
-     <?php include("insertInstallation.php"); ?>
+     <?php include("scripts/insertInstallation.php"); ?>
      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
        <label> Nom </label> <br>
        <input type="text"> <br>
