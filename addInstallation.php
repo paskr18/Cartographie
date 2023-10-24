@@ -17,7 +17,7 @@
      </script>
      <h1> Ajout d'installation </h1>
      <div class="mapInfos">
-       <div class="infos">
+       <div class="infos" style="width:25%;">
          <?php include("scripts/insertInstallation.php"); ?>
          <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
            <label for "installation"> Centre de santé </label> <br>
@@ -35,7 +35,7 @@
            <input type="submit" value="Soumettre">
          </form>
        </div>
-       <div id="map"></div>
+       <div id="map" style="width:25%;"></div>
      </div>
      <script>
           var map = L.map('map').setView([7.54, -5.54],7);
