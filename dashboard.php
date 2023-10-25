@@ -21,6 +21,8 @@
         <script src="scripts/mapDashboard.js"></script>
         <div class="infos">
           <h1> Infos </h1>
+          <p id="district"> </p>
+          <p id="population"> </p>
         </div>
      <div>
   </body>
