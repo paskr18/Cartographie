@@ -6,6 +6,10 @@ function highlightFeature(e) { var layer = e.target;
                                layer.setStyle({weight:5, color:"#666", dashArray:"", fillOpacity:0.7});
                                layer.bringToFront();}
 function resetHighlight(e) { geojson.resetStyle(e.target); }
-function zoomToFeature(e) { map.fitBounds(e.target.getBounds()); }
-function onEachFeature(feature, layer) { layer.on({mouseover: highlightFeature, mouseout: resetHighlight, click: zoomToFeature}); }
+updateInfos = function (props) { document.getElementById("district").innerHTML = "<b> District: </b>" + props.name + "<br>";
+                                 document.getElementById("population").innerHTML = "<b> Population: </b>" + props.population}
+function showInfos(e) { var layer = e.target;
+                        updateInfos(layer.feature.properties); }
+function onEachFeature(feature, layer) { layer.on({mouseover: highlightFeature, mouseout: resetHighlight, click: showInfos}); }
+
 const geojson = L.geoJson(districts,{style:style, onEachFeature: onEachFeature}).addTo(map);
