@@ -21,5 +21,9 @@
           <p id="population"><b>Population : </b></p>
         </div>
      <div>
+     <script>
+        const myActive = document.getElementById("dashboard");
+        myActive.style.backgroundColor="#00FF00";
+     </script>
   </body>
 </html>
