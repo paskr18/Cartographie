@@ -1,14 +1,24 @@
 <?php
   echo "<header>";
   echo "<nav>";
-  echo "<ul>";
-  echo '<li> <a href="#"> HP+ Côte d&#39Ivoire </a></li>';
-  echo '<li> <a id="dashboard" href="dashboard.php"> Tableau de bord </a></li>';
-  echo '<li> <a id="combinedMaps" href="combinedMaps.php"> Cartes combinées </a></li>';
-  echo '<li style="float:right;"> <a href="#"> Déconexion </a></li>';
-  echo '<li style="float:right;"> <a id="administration" href="administration.php"> Admin </a></li>';
-  echo '<li style="float:right;"> <a id="dataManagement" href="dataManagement.php"> Gestion de données </a></li>';
-  echo "</ul>";
+  echo '<div class="navbar">';
+  echo '<a href="#"> Côte d&#39Ivoire <a>';
+  echo '<a href="dashboard.php"> Tableau de bord </a>';
+  echo '<a href="combinedMaps.php"> Cartes Combinées </a>';
+  echo '<div class="dropdown">';
+  echo '<button class="dropbtn"> Gestion de données &#9660</button>';
+  echo '<div class="dropdown-content">';
+  echo '<a href="dataManagementTown.php"> Gestion des agglomérations </a>';
+  echo '<a href="dataManagementInstallation.php"> Gestion des installations </a>';
+  echo '</div>';
+  echo '</div>';
+  echo '<div class="dropdown">';
+  echo '<button class="dropbtn"> Administration &#9660</button>';
+  echo '<div class="dropdown-content">';
+  echo '<a href="administration.php"> Gestion des utilisateurs </a>';
+  echo '</div>';
+  echo '</div>';
+  echo '</div>';
   echo "</nav>";
   echo "</header>";
 ?>

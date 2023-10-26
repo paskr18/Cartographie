@@ -11,18 +11,14 @@
 
   <body>
      <?php include "header.php"; ?>
-     <script>
-       const myConstant = document.getElementById("dashboard");
-       myConstant.style.backgroundColor="#FF0000";
-     </script>
      <div class="mapInfos">
         <div id="map"></div>
         <script src="scripts/ivoryCoast.js"></script>
         <script src="scripts/mapDashboard.js"></script>
         <div class="infos">
           <h1> Infos </h1>
-          <p id="district"> </p>
-          <p id="population"> </p>
+          <p id="district"><b>District : </b></p>
+          <p id="population"><b>Population : </b></p>
         </div>
      <div>
   </body>

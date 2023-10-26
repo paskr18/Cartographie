@@ -11,10 +11,6 @@
 
   <body>
      <?php include "header.php"; ?>
-     <script>
-       const myConstant = document.getElementById("combinedMaps");
-       myConstant.style.backgroundColor="#FF0000";
-     </script>
      <div class="mapInfos">
         <div id="map"></div>
         <script src="scripts/ivoryCoast.js"></script>
