@@ -11,10 +11,6 @@
 
   <body>
      <?php include "header.php"; ?>
-     <script>
-       const myConstant = document.getElementById("dataManagement");
-       myConstant.style.backgroundColor="#FF0000";
-     </script>
      <h1> Ajout d'agglomération </h1>
      <div class="mapInfos">
        <div class="infos" style="width:25%;">
@@ -35,19 +31,6 @@
        </div>
        <div id="map" style="width:25%;"></div>
      </div>
-     <script>
-          var map = L.map('map').setView([7.54, -5.54],7);
-          L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19, attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
-          
-          function onMapClick(e) {
-            var parts = e.latlng.toString();
-            lastpart = parts.replace("LatLng(", "");
-            middleForm = lastpart.replace(")" , "");
-            lastForm = middleForm.replace(" ","");
-            parts = lastForm.split(",");
-            document.getElementById("latitude").value = parts[0];
-            document.getElementById("longitude").value = parts[1]; }
-            map.on('click',onMapClick);
-        </script>
+     <script src="scripts/addMap.js"></script> 
   </body>
 </html>
