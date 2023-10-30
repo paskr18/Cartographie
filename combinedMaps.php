@@ -16,7 +16,7 @@
         myActive.style.backgroundColor="#00FF00";
      </script>
      <div class="mapInfos">
-        <div id="map"></div>
+        <div id="map" style="height:550px;"></div>
         <script src="scripts/ivoryCoast.js"></script>
         <script src="scripts/mapCombined.js"></script>
         <div class="infos">
@@ -34,7 +34,36 @@
                }
              document.getElementById("legend").appendChild(div);
              }
-      </script>
+        </script>
+        <br>
+        <hr>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+          <label for="district"> Districts : </label>
+          <select id="district" name="district">
+            <?php
+              $conn = new mysqli("localhost","root","","cartographie");
+              if ($conn->connect_error) {
+                echo "Connection failed: ". $conn->connect_error ;
+              } 
+              $sql = "SELECT Name FROM departments";
+              $result = $conn->query($sql);
+              if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()){
+                  echo '<option value="'. strtolower($row["Name"]) .'">'. $row["Name"] .'</option>';
+                }
+              } else {
+                echo "result found";
+              }
+              $conn->close();
+            ?>
+          </select>
+          <br> <br>
+          <input type="checkbox" name="town" id="town" value="Town">
+          <label for="town"> Afficher les agglomérations </label> <br> <br>
+          <input type="checkbox" name="health" id="health" value="health">
+          <label for="town"> Afficher les installation médicales </label>
+        </form>
+        <br>
         </div>
   </body>
 </html>
