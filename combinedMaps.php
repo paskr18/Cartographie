@@ -40,21 +40,7 @@
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
           <label for="district"> Districts : </label>
           <select id="district" name="district">
-            <?php
-              $conn = new mysqli("localhost","root","","cartographie");
-              if ($conn->connect_error) {
-                echo "Connection failed: ". $conn->connect_error ;
-              } 
-              $sql = "SELECT Name FROM departments";
-              $result = $conn->query($sql);
-              if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()){
-                  echo '<option value="'. strtolower($row["Name"]) .'">'. $row["Name"] .'</option>';
-                }
-              } else {
-                echo "result found";
-              }
-              $conn->close();
+            <?php include "scripts/districtsDropdown.php";
             ?>
           </select>
           <br> <br>
