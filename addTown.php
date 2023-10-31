@@ -12,6 +12,10 @@
 
   <body>
      <?php include "header.php"; ?>
+     <script>
+        const myHeader = document.getElementById("dataManagement");
+        myHeader.style.backgroundColor = "#00FF00";
+     </script>
      <h1> Ajout d'agglomération </h1>
      <div class="mapInfos">
        <div class="infos" style="width:25%;">

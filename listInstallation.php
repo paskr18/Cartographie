@@ -9,10 +9,10 @@
 
   <body>
      <?php include "header.php"; ?>
-     <h1> Liste des installations </h1>
      <script>
-       const myConstant = document.getElementById("dataManagement");
-       myConstant.style.backgroundColor="#FF0000";
+        const myHeader = document.getElementById("dataManagement");
+        myHeader.style.backgroundColor = "#00FF00";
      </script>
+     <h1> Liste des installations </h1>
   </body>
 </html>

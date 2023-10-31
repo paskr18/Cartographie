@@ -9,10 +9,11 @@
 
   <body>
      <?php include "header.php"; ?>
-     <h1> Liste des utilisateurs </h1>
      <script>
        const myConstant = document.getElementById("administration");
-       myConstant.style.backgroundColor="#FF0000";
+       myConstant.style.backgroundColor="#00FF00";
      </script>
+     <h1> Liste des utilisateurs </h1>
+     
   </body>
 </html>
