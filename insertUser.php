@@ -16,7 +16,7 @@
       if(!preg_match("/^[a-zA-Z- ]*$/", $_POST["firstName"])){
         $firstNameERR = "Seuls les lettres et les chiffres sont acceptés.";
       } else {
-        $user=testInput($_POST["firstName"]);
+        $firstName=testInput($_POST["firstName"]);
       }
     }
 
@@ -26,14 +26,14 @@
       if(!preg_match("/^[a-zA-Z- ]*$/", $_POST["lastName"])){
         $lastNameERR = "Seuls les lettres et les chiffres sont acceptés.";
       } else {
-        $user=testInput($_POST["lastName"]);
+        $lastName=testInput($_POST["lastName"]);
       }
     }
 
     if(empty($_POST["user"])){
        $userERR = "Ce champ doit être renseigné.";
     } else {
-      if(!preg_match("/^[a-zA-Z- ]*$/", $_POST["user"])){
+      if(!preg_match("/^[a-zA-Z0-9- ]*$/", $_POST["user"])){
         $userERR = "Seuls les lettres et les chiffres sont acceptés.";
       } else {
         $user=testInput($_POST["user"]);
@@ -73,5 +73,9 @@
         $email=testInput($_POST["email"]);
       }
     }
-  }
+    if((isset($_POST["firstName"])) && (isset($_POST["lastName"]))  && (isset($_POST["user"]))  && (isset($_POST["role"]))) {
+      echo '<script> confirm("Valeurs insérées : '. $_POST["firstName"] .' \n ' .$_POST["lastName"].  ' \n ' . $_POST["user"] . ' \n ' . $_POST["role"] . '"); </script>';
+    }
+  } 
+  
 ?>
