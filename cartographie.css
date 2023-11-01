@@ -88,4 +88,8 @@ nav { height: 40px;
 
 .dropdown-content a:hover {background-color: #DDDDDD;}
 
-.dropdown:hover .dropdown-content { display: block; }
+.dropdown:hover .dropdown-content { display: block; } 
+
+.userForm { border : 1px solid black;
+            margin: 0 25%;
+            border-radius: 15px; }

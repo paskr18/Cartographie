@@ -73,8 +73,8 @@
         $email=testInput($_POST["email"]);
       }
     }
-    if((isset($_POST["firstName"])) && (isset($_POST["lastName"]))  && (isset($_POST["user"]))  && (isset($_POST["role"]))) {
-      echo '<script> confirm("Valeurs insérées : '. $_POST["firstName"] .' \n ' .$_POST["lastName"].  ' \n ' . $_POST["user"] . ' \n ' . $_POST["role"] . '"); </script>';
+    if((!empty($_POST["firstName"])) && (!empty($_POST["lastName"]))  && (!empty($_POST["user"])) && (!empty($_POST["password"])) && (!empty($_POST["role"]))  && (!empty($_POST["email"]))) {
+      echo '<script> confirm("Souhaitez-vous enregistrer cet utilisateur ?"); </script>';
     }
   } 
   

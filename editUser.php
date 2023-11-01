@@ -10,12 +10,12 @@
   <body>
      <?php include "header.php"; ?>
      <script>
-       const myConstant = document.getElementById("dataManagement");
-       myConstant.style.backgroundColor="#FF0000";
+       const myConstant = document.getElementById("administration");
+       myConstant.style.backgroundColor="#00FF00";
      </script>
-     <h1> Modification d'utilisateur </h1>
+     <h1 style="margin: 10px 25%;"> Modification d'utilisateur </h1>
      <?php include("scripts/insertUser.php"); ?>
-     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+     <form class="userForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
        <label for "firstName> Prénom </label> <br>
        <input type="text" id="firstName" name="firstName" value="<?php echo $firstName ; ?>"> <span class="errors"> <?php echo $firstNameERR; ?> </span> <br>
        <label for "lastName> Nom de famille </label> <br>
