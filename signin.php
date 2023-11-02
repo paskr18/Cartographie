@@ -28,5 +28,8 @@
          $password=testInput($_POST["password"]);
        }
      }
+     if((!empty($_POST["user"]))  &&  (!empty($_POST["password"]))) {
+       echo 'Les valeurs renseignées sont : ' . $_POST["user"] . ' et ' . $_POST["password"]. '.';
+     }
    }
 ?>
