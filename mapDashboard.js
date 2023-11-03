@@ -7,8 +7,8 @@ function highlightFeature(e) { var layer = e.target;
                                layer.setStyle({weight:5, color:"#666", dashArray:"", fillOpacity:0.7});
                                layer.bringToFront();}
 function resetHighlight(e) { geojson.resetStyle(e.target); }
-updateInfos = function (props) { document.getElementById("district").innerHTML = "<b> District: </b>" + props.name + "<br>";
-                                 document.getElementById("population").innerHTML = "<b> Population: </b>" + props.population}
+updateInfos = function (props) { document.getElementById("district").innerHTML = "<b> District : </b>" + props.name + "<br>";
+                                 document.getElementById("population").innerHTML = "<b> Population : </b>" + props.population}
 function showInfos(e) { var layer = e.target;
                         updateInfos(layer.feature.properties); }
 function onEachFeature(feature, layer) { layer.on({mouseover: highlightFeature, mouseout: resetHighlight, click: showInfos}); }

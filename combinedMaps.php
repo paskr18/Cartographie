@@ -58,45 +58,73 @@
                    switch (hDepartments) {
                      case "Abidjan":
                         $("#map").innerHTML = map.setView([5.316667, -4.033333], 10);
+                        layerDistricts.clearLayers();
+                        const abidjan = L.geoJSON(districts, {style:style, filter: function(feature,layer) {return feature.id == 01;}}).addTo(layerDistricts);
                         break;
                      case "Bas-Sassandra" :
                         $("#map").innerHTML = map.setView([5.49998, -6.666664],8);
+                        layerDistricts.clearLayers();
+                        const bassassandra = L.geoJSON(districts, {style:style, filter: function(feature,layer) {return feature.id == 02;}}).addTo(layerDistricts);
                         break;
                      case "Comoé" :
                         $("#map").innerHTML = map.setView([6.7333, -3.4834],9);
+                        layerDistricts.clearLayers();
+                        const comoe = L.geoJSON(districts, {style:style, filter: function(feature,layer) {return feature.id == 03;}}).addTo(layerDistricts);
                         break;
                      case "Denguélé" :
                         $("#map").innerHTML = map.setView([9.4999, -7.417],8);
+                        layerDistricts.clearLayers();
+                        const denguele = L.geoJSON(districts, {style:style, filter: function(feature,layer) {return feature.id == 04;}}).addTo(layerDistricts);
                         break;
                      case "Gôh-Djiboua" :
                         $("#map").innerHTML = map.setView([6.1332, -5.9333],9);
+                        layerDistricts.clearLayers();
+                        const gohdjiboua = L.geoJSON(districts, {style:style, filter: function(feature,layer) {return feature.id == 05;}}).addTo(layerDistricts);
                         break;
                       case "Lacs" :
                         $("#map").innerHTML = map.setView([6.6499, -4.6999],9);
+                        layerDistricts.clearLayers();
+                        const lacs = L.geoJSON(districts, {style:style, filter: function(feature,layer) {return feature.id == 06;}}).addTo(layerDistricts);
                         break;
                       case "Lagunes" :
                         $("#map").innerHTML = map.setView([5.9333, -4.2167],9);
+                        layerDistricts.clearLayers();
+                        const lagunes = L.geoJSON(districts, {style:style, filter: function(feature,layer) {return feature.id == 07;}}).addTo(layerDistricts);
                         break;
                       case "Montagnes" :
                         $("#map").innerHTML = map.setView([7.3999, -7.55],8);
+                        layerDistricts.clearLayers();
+                        const Montagnes = L.geoJSON(districts, {style:style, filter: function(feature,layer) {return feature.id == 08;}}).addTo(layerDistricts);
                         break;
                       case "Sassandra-Marahoué" :
                         $("#map").innerHTML = map.setView([6.8833, -6.45],8);
+                        layerDistricts.clearLayers();
+                        const sassandramarahoue = L.geoJSON(districts, {style:style, filter: function(feature,layer) {return feature.id == 09;}}).addTo(layerDistricts);
                         break;
                       case "Savanes" :
                         $("#map").innerHTML = map.setView([9.4165, -5.6166],8);
+                        layerDistricts.clearLayers();
+                        const savannes = L.geoJSON(districts, {style:style, filter: function(feature,layer) {return feature.id == 10;}}).addTo(layerDistricts);
                         break;
                       case "Vallée du Bandama" :
                         $("#map").innerHTML = map.setView([8.1333, -5.1001],8);
+                        layerDistricts.clearLayers();
+                        const valledubandama = L.geoJSON(districts, {style:style, filter: function(feature,layer) {return feature.id == 11;}}).addTo(layerDistricts);
                         break;
                       case "Woroba" :
                         $("#map").innerHTML = map.setView([8.4832, -6.6],8);
+                        layerDistricts.clearLayers();
+                        const woroba = L.geoJSON(districts, {style:style, filter: function(feature,layer) {return feature.id == 12;}}).addTo(layerDistricts);
                         break;
                       case "Yamoussoukro":
                         $("#map").innerHTML = map.setView([6.8092, -5.2954],10);
+                        layerDistricts.clearLayers();
+                        const yamoussoukro = L.geoJSON(districts, {style:style, filter: function(feature,layer) {return feature.id == 13;}}).addTo(layerDistricts);
                         break;
                       case "Zanzan" : 
                         $("#map").innerHTML = map.setView([8.6167, -3.15],8);
+                        layerDistricts.clearLayers();
+                        const zanzan = L.geoJSON(districts, {style:style, filter: function(feature,layer) {return feature.id == 14;}}).addTo(layerDistricts);
                    }
                  });
                });

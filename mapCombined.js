@@ -9,4 +9,6 @@ var map = L.map('map').setView([7.54, -5.54],7);
           function resetHighlight(e) { geojson.resetStyle(e.target); }
           function zoomToFeature(e) { map.fitBounds(e.target.getBounds()); }
           function onEachFeature(feature, layer) { layer.on({mouseover: highlightFeature, mouseout: resetHighlight, click: zoomToFeature}); }
-          const geojson = L.geoJson(districts,{style:style, onEachFeature: onEachFeature}).addTo(map);
+         const layerDistricts = L.featureGroup();
+         const geojson = L.geoJson(districts,{style:style, onEachFeature: onEachFeature}).addTo(layerDistricts);
+         layerDistricts.addTo(map);
