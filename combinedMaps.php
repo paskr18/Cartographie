@@ -93,7 +93,7 @@
                         map.fitBounds(lacs.getBounds());
                         break;
                       case "Lagunes" :
-                        $("#map").innerHTML = map.setView([5.9333, -4.2167],9);
+                        $("#map").innerHTML = map.setView([5.9333, -4.2167],8);
                         layerDistricts.clearLayers();
                         const lagunes = L.geoJSON(districts, {style:style, filter: function(feature,layer) {return feature.id == 07;}}).addTo(layerDistricts);
                         map.fitBounds(lagunes.getBounds());
