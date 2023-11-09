@@ -37,6 +37,9 @@
        </div>
        <div id="map" style="width:25%;"></div>
      </div>
-     <script src="scripts/addMap.js"></script> 
+     <script src="scripts/addMap.js"></script>
+     <?php
+       include "scripts/displayTown.php"
+     ?> 
   </body>
 </html>
