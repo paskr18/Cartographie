@@ -10,7 +10,7 @@
    }
 
    if($_SERVER["REQUEST_METHOD"] == "POST"){
-      if(empty($_POST["departement"])){
+      /*if(empty($_POST["departement"])){
          $departementERR = "Ce champ doit être renseigné.";
       } else {
          if(!preg_match("/^[a-zA-Z- ]*$/", $_POST["departement"])){
@@ -28,7 +28,7 @@
          } else {
            $commune=testInput($_POST["commune"]);
          }
-      }
+      }*/
 
       if(empty($_POST["ville"])){
          $villeERR = "Ce champ doit être renseigné.";
@@ -58,6 +58,35 @@
          } else {
            $longitude=testInput($_POST["longitude"]);
          }
+      }
+      
+      if ((!empty($_POST["departement"]))  && (!empty($_POST["commune"])) && (!empty($_POST["ville"])) && (!empty($_POST["latitude"])) && (!empty($_POST["longitude"]))) {
+         include("scripts/dbconnect.php"); 
+         $departs = strval($_POST["departement"]);
+         $sql = "SELECT deptID FROM departments WHERE Name='" . $departs . "'";
+         $result = $conn->query($sql);
+         if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+             $deptID = $row["deptID"];
+            }
+         } else {
+           echo "No result";
+         }
+         $commu = strval($_POST["commune"]);
+         $sql = "SELECT communeID FROM communes WHERE Nom='" . $commu . "'";
+         $result = $conn->query($sql);
+         if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+             $communeID = $row["communeID"];
+            }
+         } else {
+           echo "No result";
+         }
+         $sql = "INSERT INTO villes(townName,deptID,communeID,latitude,longitude) VALUES ('". $_POST["ville"] ."','". $deptID ."','". $communeID ."','". $_POST["latitude"] ."','". $_POST["longitude"] ."')";
+         $result = $conn->query($sql);
+         $conn->close();
+         $departement=$commune=$ville=$latitude=$longitude="";
+         echo '<script> alert("Agglomération créée.");  </script>';
       }
    }
 ?>

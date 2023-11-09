@@ -1,8 +1,5 @@
 <?php
-              $conn = new mysqli("localhost","root","","cartographie");
-              if ($conn->connect_error) {
-                echo "Connection failed: ". $conn->connect_error ;
-              } 
+              include("scripts/dbconnect.php");
               $sql = "SELECT Name FROM departments";
               $result = $conn->query($sql);
               if ($result->num_rows > 0) {

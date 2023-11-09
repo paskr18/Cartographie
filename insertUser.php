@@ -73,8 +73,16 @@
         $email=testInput($_POST["email"]);
       }
     }
+
     if((!empty($_POST["firstName"])) && (!empty($_POST["lastName"]))  && (!empty($_POST["user"])) && (!empty($_POST["password"])) && (!empty($_POST["role"]))  && (!empty($_POST["email"]))) {
-      echo '<script> confirm("Souhaitez-vous enregistrer cet utilisateur ?"); </script>';
+      include("scripts/encryptDecrypt.php");
+      $motdepasse = encryptData($_POST["password"]);
+      include("scripts/dbconnect.php"); 
+      $sql = "INSERT INTO users(first_name,last_name,user,password,email,date,role) VALUES ('". $_POST["firstName"] ."','". $_POST["lastName"] ."','".  $_POST["user"]."','". $motdepasse ."','". $_POST["email"] ."','". date("Y-m-d h:i:sa") ."','". $_POST["role"] ."')";
+      $result = $conn->query($sql);
+      $conn->close();
+      $firstName=$lastName=$user=$password=$passwordConfirm=$email="";
+      echo '<script> alert("Utilisateur créé.");  </script>';
     }
   } 
   

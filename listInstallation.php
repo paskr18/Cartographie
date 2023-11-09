@@ -14,5 +14,8 @@
         myHeader.style.backgroundColor = "#00FF00";
      </script>
      <h1> Liste des installations </h1>
+     <table>
+     <tr><th> District </th> <th> Région </th> <th> Agglomération </th> <th> Installation </th> <th> Modifier </th> <th> Supprimer </th></tr>
+     </table>
   </body>
 </html>

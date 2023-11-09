@@ -17,7 +17,7 @@
        <div class="infos" style="width:25%;">
          <?php include("scripts/insertTown.php"); ?>
          <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-           <label for "ville"> Ville </label> <br>
+           <label for "ville"> Agglomération </label> <br>
            <input type="text" id="ville" name="ville" value="<?php echo $ville;?>"> <span class="errors"> <?php echo $villeERR; ?> </span> <br>
            <label for "departement"> District </label>
            <select id="departement" name="departement">

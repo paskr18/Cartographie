@@ -29,7 +29,7 @@
              <script src="scripts/regionsDropdown.js"></script>
            </select>
            <br>
-           <label for "ville"> Ville </label> <br>
+           <label for "ville"> Agglomération </label> <br>
            <input type="text" id="ville" name="ville" value="<?php echo $ville; ?>"> <span class="errors"> <?php echo $villeERR; ?> </span> <br>
            <label for "latitude"> Latitude </label> <br>
            <input type="text" id="latitude" name="latitude" value="<?php echo $latitude; ?>"> <span class="errors"> <?php echo $latitudeERR; ?> </span> <br>
