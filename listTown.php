@@ -17,12 +17,11 @@
      <h1> Liste des agglomérations </h1>
      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
            <label for="ville"> Agglomération </label>
-           <input input type="text" id="ville" name="ville">
+           <input type="text" id="ville" name="ville">
            <label for="departement"> District </label>
              <select id="departement" name="departement">
              <option value="none" selected disabled hidden> Choisissez le district </option>
             <?php include "scripts/districtsDropdown.php" ?>;
-            <option value="Tout" name="Tout"> Tout </option>
           </select>
           <label for="commune"> Région </label> 
            <select id="commune" name="commune">
@@ -49,7 +48,7 @@
        }
        $conn->close();
      ?>
+     <?php include("scripts/searchTown.php"); ?>
      </table>
-     <?php include "scripts/searchTown.php"; ?>
   </body>
 </html>
