@@ -4,6 +4,7 @@ L.control.scale().addTo(map);
 const layerTowns = L.featureGroup();
 layerTowns.addTo(map);
 var newTown = null;
+var greenIcon = L.icon({iconUrl:'images/icons/green_locator.png', iconAnchor: [18,64]});
           
 function onMapClick(e) {
             var parts = e.latlng.toString();
@@ -14,7 +15,7 @@ function onMapClick(e) {
             document.getElementById("latitude").value = parts[0];
             document.getElementById("longitude").value = parts[1];
               if (newTown == null) {
-                 newTown = L.marker(e.latlng).addTo(layerTowns);
+                 newTown = L.marker(e.latlng, {icon: greenIcon}).addTo(layerTowns);
               } else {
                  newTown.setLatLng(e.latlng);
               } 
