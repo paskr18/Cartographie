@@ -3,6 +3,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19, attr
 L.control.scale().addTo(map);
 const layerTowns = L.featureGroup();
 layerTowns.addTo(map);
+var newTown = null;
           
 function onMapClick(e) {
             var parts = e.latlng.toString();
@@ -11,6 +12,12 @@ function onMapClick(e) {
             lastForm = middleForm.replace(" ","");
             parts = lastForm.split(",");
             document.getElementById("latitude").value = parts[0];
-            document.getElementById("longitude").value = parts[1]; }
+            document.getElementById("longitude").value = parts[1];
+              if (newTown == null) {
+                 newTown = L.marker(e.latlng).addTo(layerTowns);
+              } else {
+                 newTown.setLatLng(e.latlng);
+              } 
+            }
             
 map.on('click',onMapClick);
