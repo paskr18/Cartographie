@@ -29,7 +29,26 @@
        }
      }
      if((!empty($_POST["user"]))  &&  (!empty($_POST["password"]))) {
-       echo 'Les valeurs renseignées sont : ' . $_POST["user"] . ' et ' . $_POST["password"]. '.';
+       include "dbconnect.php";
+       include "encryptDecrypt.php";
+       $sql = "SELECT * FROM users WHERE user = '" . $_POST["user"] . "'";
+       $result=$conn->query($sql);
+       if ($result->num_rows > 0) {
+         while ($row = $result->fetch_assoc()){
+           $_SESSION["role"] = $row["role"] ;
+           $_SESSION["password"] = decryptData($row["password"]) ;
+           $_SESSION["fname"] = $row["first_name"] ;
+           $_SESSION["lname"] = $row["last_name"] ;
+           $_SESSION["login_time_stamp"] = time() ;
+         }
+       }
+       $conn->close();
+       if ($_SESSION["password"] == $_POST["password"]) {
+          header("Location:dashboard.php");
+       } else {
+         $userERR=$passwordERR="Utilisateur ou mot de passe incorrects.";
+         $user=$password="";
+      }
      }
    }
 ?>
