@@ -27,6 +27,8 @@
             echo '<td>' . $row["first_name"]. '</td>';
             echo '<td>' . $row["last_name"]. '</td>';
             echo '<td>' . $row["role"]. '</td>';
+            echo '<td> <button class="edit" id="ID'. $row["ID"] .'"> Modifier </button> </td>';
+            echo '<td> <button class="delete" id="ID'. $row["ID"] .'"> - </button> </td>';
             echo "</tr>" ;     
          }
        } else {

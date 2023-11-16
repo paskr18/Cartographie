@@ -33,7 +33,7 @@
      <tr><th> District </th> <th> Région </th> <th> Agglomération </th> <th> Modifier </th> <th> Supprimer </th></tr>
      <?php
        include("scripts/dbconnect.php");
-       $sql = "SELECT DISTINCT villes.townName, departments.Name, communes.Nom FROM (( villes INNER JOIN departments ON villes.deptID = departments.deptID) INNER JOIN communes ON villes.communeID = communes.communeID) ORDER BY departments.deptID, communes.communeID, villes.townName";
+       $sql = "SELECT DISTINCT villes.villeID, villes.townName, departments.Name, communes.Nom FROM (( villes INNER JOIN departments ON villes.deptID = departments.deptID) INNER JOIN communes ON villes.communeID = communes.communeID) ORDER BY departments.deptID, communes.communeID, villes.townName";
         $result = $conn->query($sql);
        if ($result->num_rows > 0) {
          while ($row = $result->fetch_assoc()){
@@ -41,6 +41,8 @@
             echo '<td>' . $row["Name"]. '</td>';
             echo '<td>' . $row["Nom"]. '</td>';
             echo '<td>' . $row["townName"]. '</td>';
+            echo '<td> <button class="edit" id="ID'. $row["villeID"] .'"> Modifier </button> </td>';
+            echo '<td> <button class="delete" id="ID'. $row["villeID"] .'"> - </button> </td>';
             echo "</tr>" ;     
          }
        } else {

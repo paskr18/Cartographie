@@ -100,3 +100,21 @@ nav { height: 40px;
 .userForm { border : 1px solid black;
             margin: 0 25%;
             border-radius: 15px; }
+
+.edit { border-radius: 12px;
+        height: 24px;
+        width: 75px;
+        background-color: #87CEEB;
+        color: white;
+        border: 1px solid #87CEEB;
+        margin-left: 50px; }
+
+.delete { border-radius: 50%;
+          width: 24px;
+          height: 24px;
+          background-color: #FF6347;
+          color: white;
+          border: 1px solid #FF6347;
+          margin-left: 50px;}
+
+tr:nth-child(even) { background-color: #E3E3E3;}
