@@ -41,8 +41,8 @@
             echo '<td>' . $row["Name"]. '</td>';
             echo '<td>' . $row["Nom"]. '</td>';
             echo '<td>' . $row["townName"]. '</td>';
-            echo '<td> <button class="edit" id="ID'. $row["villeID"] .'"> Modifier </button> </td>';
-            echo '<td> <button class="delete" id="ID'. $row["villeID"] .'"> - </button> </td>';
+            echo '<td> <button class="edit" id="ID'. $row["villeID"] .'" onClick="getID(this.id)"> Modifier </button> </td>';
+            echo '<td> <button class="delete" id="ID'. $row["villeID"] .'" onClick="getID(this.id)"> - </button> </td>';
             echo "</tr>" ;     
          }
        } else {
@@ -52,5 +52,12 @@
      ?>
      <?php include("scripts/searchTown.php"); ?>
      </table>
+     <script>
+        function getID(clickedID){
+           clickedID = clickedID.replace("ID","");
+           document.cookie = "ID=" + clickedID;
+           window.location.href = "editTown.php";
+        }
+     </script>
   </body>
 </html>

@@ -13,13 +13,17 @@
   <body>
      <?php include "header.php"; ?>
      <h1> Modification d'agglomération </h1>
+     <script>
+        const myHeader = document.getElementById("dataManagement");
+        myHeader.style.backgroundColor = "#00FF00";
+     </script>
      <div class="mapInfos">
        <div class="infos" style="width:25%;">
          <?php include("scripts/insertTown.php"); ?>
          <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-           <label for "ville"> Agglomération </label> <br>
+           <label for="ville"> Agglomération </label> <br>
            <input type="text" id="ville" name="ville" value="<?php echo $ville;?>"> <span class="errors"> <?php echo $villeERR; ?> </span> <br>
-           <label for "departement"> District </label>
+           <label for="departement"> District </label>
            <select id="departement" name="departement">
             <?php include "scripts/districtsDropdown.php" ?>;
           </select>
@@ -30,7 +34,7 @@
            </select>
            <br>
            <input type="text" id="latitude" name="latitude" value="<?php echo $latitude;?>"> <span class="errors"> <?php echo $latitudeERR; ?> </span> <span class="errors">  </span> <br>
-           <label for "longitude"> Longitude </label> <br>
+           <label for="longitude"> Longitude </label> <br>
            <input type="text" id="longitude" name="longitude" value="<?php echo $longitude;?>">  <span class="errors"> <?php echo $longitudeERR; ?> </span> <br>
            <input type="submit" value="Soumettre">
          </form>
@@ -41,5 +45,21 @@
      <?php
        include "scripts/displayTown.php"
      ?> 
+     <?php
+       include("scripts/dbconnect.php");
+       $sql = "SELECT DISTINCT villes.townName, departments.Name, communes.Nom, villes.latitude, villes.longitude FROM (( villes INNER JOIN departments ON villes.deptID = departments.deptID) INNER JOIN communes ON villes.communeID = communes.communeID) WHERE villes.villeID='". $_COOKIE["ID"] ."'";
+       $result = $conn->query($sql);
+       if ($result->num_rows > 0) {
+         while ($row = $result->fetch_assoc()){
+           echo '<script> document.getElementById("ville").value = "' . $row["townName"] . '" </script>';
+           echo '<script> document.getElementById("departement").value="' . $row["Name"] . '" </script>';
+           echo '<script> document.getElementById("commune").value="' . $row["Nom"] . '" </script>';
+           echo '<script> document.getElementById("latitude").value="' . $row["latitude"] . '" </script>';
+           echo '<script> document.getElementById("longitude").value="' . $row["longitude"] . '" </script>';
+           echo '<script> map.setView(['. floatval($row["latitude"]) .','. floatval($row["longitude"]) .'],9); </script>;';
+         }
+       }
+       $conn->close();
+     ?>
   </body>
 </html>
