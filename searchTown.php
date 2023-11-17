@@ -20,8 +20,8 @@
             echo '<td>' . $row["Name"]. '</td>';
             echo '<td>' . $row["Nom"]. '</td>';
             echo '<td>' . $row["townName"]. '</td>';
-            echo '<td> <button class="edit" id="ID'. $row["villeID"] .'"> Modifier </button> </td>';
-            echo '<td> <button class="delete" id="ID'. $row["villeID"] .'"> - </button> </td>';
+            echo '<td> <button class="edit" id="ID'. $row["villeID"] .'" onClick="getID(this.id)"> Modifier </button> </td>';
+            echo '<td> <button class="delete" id="ID'. $row["villeID"] .'" onClick="getID(this.id)"> - </button> </td>';
             echo "</tr>" ;     
          } 
        }
@@ -34,8 +34,8 @@
             echo '<td>' . $row["Name"]. '</td>';
             echo '<td>' . $row["Nom"]. '</td>';
             echo '<td>' . $row["townName"]. '</td>';
-            echo '<td> <button class="edit" id="ID'. $row["villeID"] .'"> Modifier </button> </td>';
-            echo '<td> <button class="delete" id="ID'. $row["villeID"] .'"> - </button> </td>';
+            echo '<td> <button class="edit" id="ID'. $row["villeID"] .'" onClick="getID(this.id)"> Modifier </button> </td>';
+            echo '<td> <button class="delete" id="ID'. $row["villeID"] .'" onClick="getID(this.id)"> - </button> </td>';
             echo "</tr>" ;     
          } 
        }
@@ -48,8 +48,8 @@
             echo '<td>' . $row["Name"]. '</td>';
             echo '<td>' . $row["Nom"]. '</td>';
             echo '<td>' . $row["townName"]. '</td>';
-            echo '<td> <button class="edit" id="ID'. $row["villeID"] .'"> Modifier </button> </td>';
-            echo '<td> <button class="delete" id="ID'. $row["villeID"] .'"> - </button> </td>';
+            echo '<td> <button class="edit" id="ID'. $row["villeID"] .'" onClick="getID(this.id)"> Modifier </button> </td>';
+            echo '<td> <button class="delete" id="ID'. $row["villeID"] .'" onClick="getID(this.id)"> - </button> </td>';
             echo "</tr>" ;     
          } 
        }
@@ -58,10 +58,10 @@
     echo '<script>';
     echo 'var x = document.getElementById("ville");';
     echo 'x.value = "'. $ville .'";';
-    //echo 'var y = document.getElementById("departement");';
-   // echo 'y.value = "'. $_POST["departement"] .'";';
-    //echo 'var z = document.getElementById("commune");';
-    //echo 'z.value = "'. $_POST["commune"] .'";';
+    echo 'var y = document.getElementById("departement");';
+    echo 'y.append(new Option("'. $_POST["departement"] .'", "'. $_POST["departement"] .'"));';
+    echo 'var z = document.getElementById("commune");';
+    echo 'z.append(new Option("'. $_POST["commune"] .'", "'. $_POST["commune"] .'"));';
     echo '</script>';
   }
 ?>

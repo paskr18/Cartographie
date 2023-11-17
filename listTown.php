@@ -20,7 +20,7 @@
            <input type="text" id="ville" name="ville">
            <label for="departement"> District </label>
              <select id="departement" name="departement">
-             <option value="none" selected disabled hidden> Choisissez le district </option>
+               <option value="none" selected disabled hidden> Choisissez le district </option>
             <?php include "scripts/districtsDropdown.php" ?>;
           </select>
           <label for="commune"> Région </label> 

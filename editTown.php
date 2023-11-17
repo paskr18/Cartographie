@@ -29,7 +29,7 @@
           </select>
            <br>
            <label for="commune"> Région </label> 
-           <select id="commune">
+           <select id="commune" name="commune">
              <script src="scripts/regionsDropdown.js"></script>
            </select>
            <br>
@@ -53,7 +53,7 @@
          while ($row = $result->fetch_assoc()){
            echo '<script> document.getElementById("ville").value = "' . $row["townName"] . '" </script>';
            echo '<script> document.getElementById("departement").value="' . $row["Name"] . '" </script>';
-           echo '<script> document.getElementById("commune").value="' . $row["Nom"] . '" </script>';
+           echo '<script> document.getElementById("commune").append(new Option("' . $row["Nom"] . '","' . $row["Nom"] . '")) </script>';
            echo '<script> document.getElementById("latitude").value="' . $row["latitude"] . '" </script>';
            echo '<script> document.getElementById("longitude").value="' . $row["longitude"] . '" </script>';
            echo '<script> map.setView(['. floatval($row["latitude"]) .','. floatval($row["longitude"]) .'],9); </script>;';
