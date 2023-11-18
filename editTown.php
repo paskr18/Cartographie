@@ -11,7 +11,8 @@
   </head>
 
   <body>
-     <?php include "header.php"; ?>
+     <?php include "header.php"; 
+           include("scripts/updateTown.php"); ?>
      <h1> Modification d'agglomération </h1>
      <script>
         const myHeader = document.getElementById("dataManagement");
@@ -19,7 +20,6 @@
      </script>
      <div class="mapInfos">
        <div class="infos" style="width:25%;">
-         <?php include("scripts/insertTown.php"); ?>
          <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
            <label for="ville"> Agglomération </label> <br>
            <input type="text" id="ville" name="ville" value="<?php echo $ville;?>"> <span class="errors"> <?php echo $villeERR; ?> </span> <br>
@@ -43,7 +43,7 @@
      </div>
      <script src="scripts/addMap.js"></script>
      <?php
-       include "scripts/displayTown.php"
+       include "scripts/displayTown.php";
      ?> 
      <?php
        include("scripts/dbconnect.php");

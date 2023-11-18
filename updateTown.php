@@ -1,7 +1,7 @@
 <?php
   $departement=$commune=$ville=$latitude=$longitude="";
   $departementERR=$communeERR=$villeERR=$latitudeERR=$longitudeERR="";
-  
+ 
   function testInput($data){
       $data=trim($data);
       $data=stripslashes($data);
@@ -9,7 +9,7 @@
       return($data);
    }
 
-   if($_SERVER["REQUEST_METHOD"] == "POST"){
+  if($_SERVER["REQUEST_METHOD"] == "POST"){
       if(empty($_POST["departement"])){
          $departementERR = "Ce champ doit être renseigné.";
       } else {
@@ -59,8 +59,8 @@
            $longitude=testInput($_POST["longitude"]);
          }
       }
-      
-      if ((!empty($_POST["departement"]))  && (!empty($_POST["commune"])) && (!empty($_POST["ville"])) && (!empty($_POST["latitude"])) && (!empty($_POST["longitude"]))) {
+
+   if ((!empty($_POST["departement"]))  && (!empty($_POST["commune"])) && (!empty($_POST["ville"])) && (!empty($_POST["latitude"])) && (!empty($_POST["longitude"]))) {
          include("scripts/dbconnect.php"); 
          $departs = strval($_POST["departement"]);
          $sql = "SELECT deptID FROM departments WHERE Name='" . $departs . "'";
@@ -82,11 +82,11 @@
          } else {
            echo "No result";
          }
-         $sql = "INSERT INTO villes(townName,deptID,communeID,latitude,longitude) VALUES ('". $_POST["ville"] ."','". $deptID ."','". $communeID ."','". $_POST["latitude"] ."','". $_POST["longitude"] ."')";
+         $sql = "UPDATE villes SET townName = '". $_POST["ville"] ."',deptID = '". $deptID ."',communeID =  '". $communeID ."',latitude = '". $_POST["latitude"] ."',longitude = '". $_POST["longitude"] ."' WHERE villeID = '" . $_COOKIE["ID"] ."'";
          $result = $conn->query($sql);
          $conn->close();
-         $departement=$commune=$ville=$latitude=$longitude="";
-         echo '<script> alert("Agglomération créée.");  </script>';
+         echo '<script> alert("Agglomération modifiée.");  </script>';
+         header("Location:listTown.php");
       }
    }
 ?>
