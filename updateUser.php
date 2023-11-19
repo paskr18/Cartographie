@@ -40,7 +40,7 @@
       }
     }
 
-    if(empty($_POST["password"])){
+    /*if(empty($_POST["password"])){
       $passwordERR = "Ce champ doit être renseigné.";
     } else {
       if(!preg_match("/^[a-zA-Z0-9- _]*$/", $_POST["password"])){
@@ -62,7 +62,7 @@
           $passwordConfirm=testInput($_POST["passwordConfirm"]);
         }
       }
-    }
+    }*/
 
     if(empty($_POST["email"])){
       $emailERR = "Ce champ doit être renseigné.";
@@ -74,15 +74,12 @@
       }
     }
 
-    if((!empty($_POST["firstName"])) && (!empty($_POST["lastName"]))  && (!empty($_POST["user"])) && (!empty($_POST["password"])) && (!empty($_POST["role"]))  && (!empty($_POST["email"])) && (($_POST["password"]) == ($_POST["passwordConfirm"])) ) {
-      include("scripts/encryptDecrypt.php");
-      $motdepasse = encryptData($_POST["password"]);
+    if((!empty($_POST["firstName"])) && (!empty($_POST["lastName"]))  && (!empty($_POST["user"])) && (!empty($_POST["role"]))  && (!empty($_POST["email"]))) {
       include("scripts/dbconnect.php"); 
-      $sql = "INSERT INTO users(first_name,last_name,user,password,email,date,role) VALUES ('". $_POST["firstName"] ."','". $_POST["lastName"] ."','".  $_POST["user"]."','". $motdepasse ."','". $_POST["email"] ."','". date("Y-m-d h:i:sa") ."','". $_POST["role"] ."')";
+      $sql = "UPDATE users SET first_name = '". $_POST["firstName"] ."',last_name = '". $_POST["lastName"] ."',user = '".  $_POST["user"]."',email = '". $_POST["email"] ."', role = '". $_POST["role"] ."' WHERE ID = '" . $_COOKIE["ID"] ."'";
       $result = $conn->query($sql);
       $conn->close();
-      $firstName=$lastName=$user=$password=$passwordConfirm=$email="";
-      echo '<script> alert("Utilisateur créé.");  </script>';
+      echo '<script> alert("Utilisateur modifié.");  </script>';
       header("Location:listUser.php");
     }
   } 

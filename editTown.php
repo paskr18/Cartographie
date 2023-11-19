@@ -51,12 +51,14 @@
        $result = $conn->query($sql);
        if ($result->num_rows > 0) {
          while ($row = $result->fetch_assoc()){
-           echo '<script> document.getElementById("ville").value = "' . $row["townName"] . '" </script>';
-           echo '<script> document.getElementById("departement").value="' . $row["Name"] . '" </script>';
-           echo '<script> document.getElementById("commune").append(new Option("' . $row["Nom"] . '","' . $row["Nom"] . '")) </script>';
-           echo '<script> document.getElementById("latitude").value="' . $row["latitude"] . '" </script>';
-           echo '<script> document.getElementById("longitude").value="' . $row["longitude"] . '" </script>';
-           echo '<script> map.setView(['. floatval($row["latitude"]) .','. floatval($row["longitude"]) .'],9); </script>;';
+           echo '<script>';
+           echo 'document.getElementById("ville").value = "' . $row["townName"] . '";';
+           echo 'document.getElementById("departement").value="' . $row["Name"] . '";';
+           echo 'document.getElementById("commune").append(new Option("' . $row["Nom"] . '","' . $row["Nom"] . '"));';
+           echo 'document.getElementById("latitude").value="' . $row["latitude"] . '";';
+           echo 'document.getElementById("longitude").value="' . $row["longitude"] . '";';
+           echo 'map.setView(['. floatval($row["latitude"]) .','. floatval($row["longitude"]) .'],9);';
+           echo '</script>';
          }
        }
        $conn->close();

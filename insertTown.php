@@ -82,11 +82,12 @@
          } else {
            echo "No result";
          }
-         $sql = "INSERT INTO villes(townName,deptID,communeID,latitude,longitude) VALUES ('". $_POST["ville"] ."','". $deptID ."','". $communeID ."','". $_POST["latitude"] ."','". $_POST["longitude"] ."')";
+         $sql = "INSERT INTO villes(townName,deptID,communeID,latitude,longitude) VALUES ('". strval($ville) ."','". $deptID ."','". $communeID ."','". floatval($latitude) ."','". floatval($longitude) ."')";
          $result = $conn->query($sql);
          $conn->close();
          $departement=$commune=$ville=$latitude=$longitude="";
          echo '<script> alert("Agglomération créée.");  </script>';
+         header("Location:listTown.php");
       }
    }
 ?>
