@@ -118,3 +118,15 @@ nav { height: 40px;
           margin-left: 50px;}
 
 tr:nth-child(even) { background-color: #E3E3E3;}
+
+input[type="submit"]{ border-radius: 15px;
+                      width: 150px ;
+                      height: 30px; 
+                      background-color: #009A17;
+                      color: white; 
+                      font-weight: bold;
+                      border: 1px solid #009A17;
+                      margin-top: 10px; }
+input[type="text"] { margin-top: 5px; }
+
+select { margin-top: 10px; }
