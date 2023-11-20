@@ -14,6 +14,7 @@
         const myHeader = document.getElementById("dataManagement");
         myHeader.style.backgroundColor = "#00FF00";
      </script>
+     
      <h1> Liste des agglomérations </h1>
      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
            <label for="ville"> Agglomération </label>
@@ -42,7 +43,7 @@
             echo '<td>' . $row["Nom"]. '</td>';
             echo '<td>' . $row["townName"]. '</td>';
             echo '<td> <button class="edit" id="ID'. $row["villeID"] .'" onClick="getID(this.id)"> Modifier </button> </td>';
-            echo '<td> <button class="delete" id="ID'. $row["villeID"] .'" onClick="getID(this.id)"> - </button> </td>';
+            echo '<td> <button class="delete" id="ID'. $row["villeID"] .'" onClick="removeTown(this.id)"> - </button> </td>';
             echo "</tr>" ;     
          }
        } else {
@@ -59,5 +60,6 @@
            window.location.href = "editTown.php";
         }
      </script>
+     <?php include "scripts/removeTown.php"; ?>
   </body>
 </html>

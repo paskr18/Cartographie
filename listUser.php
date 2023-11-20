@@ -28,7 +28,7 @@
             echo '<td>' . $row["last_name"]. '</td>';
             echo '<td>' . $row["role"]. '</td>';
             echo '<td> <button class="edit" id="ID'. $row["ID"] .'" onClick="getID(this.id)"> Modifier </button> </td>';
-            echo '<td> <button class="delete" id="ID'. $row["ID"] .'" onClick="getID(this.id)"> - </button> </td>';
+            echo '<td> <button class="delete" id="ID'. $row["ID"] .'" onClick="removeUser(this.id)"> - </button> </td>';
             echo "</tr>" ;     
          }
        } else {
@@ -44,5 +44,6 @@
            window.location.href = "editUser.php";
         }
      </script>
+     <?php include "scripts/removeUser.php"; ?>
   </body>
 </html>

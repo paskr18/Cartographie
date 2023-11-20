@@ -21,7 +21,7 @@
             echo '<td>' . $row["Nom"]. '</td>';
             echo '<td>' . $row["townName"]. '</td>';
             echo '<td> <button class="edit" id="ID'. $row["villeID"] .'" onClick="getID(this.id)"> Modifier </button> </td>';
-            echo '<td> <button class="delete" id="ID'. $row["villeID"] .'" onClick="getID(this.id)"> - </button> </td>';
+            echo '<td> <button class="delete" id="ID'. $row["villeID"] .'" onClick="removeTown(this.id)"> - </button> </td>';
             echo "</tr>" ;     
          } 
        }
@@ -35,7 +35,7 @@
             echo '<td>' . $row["Nom"]. '</td>';
             echo '<td>' . $row["townName"]. '</td>';
             echo '<td> <button class="edit" id="ID'. $row["villeID"] .'" onClick="getID(this.id)"> Modifier </button> </td>';
-            echo '<td> <button class="delete" id="ID'. $row["villeID"] .'" onClick="getID(this.id)"> - </button> </td>';
+            echo '<td> <button class="delete" id="ID'. $row["villeID"] .'" onClick="removeTown(this.id)"> - </button> </td>';
             echo "</tr>" ;     
          } 
        }
@@ -49,7 +49,7 @@
             echo '<td>' . $row["Nom"]. '</td>';
             echo '<td>' . $row["townName"]. '</td>';
             echo '<td> <button class="edit" id="ID'. $row["villeID"] .'" onClick="getID(this.id)"> Modifier </button> </td>';
-            echo '<td> <button class="delete" id="ID'. $row["villeID"] .'" onClick="getID(this.id)"> - </button> </td>';
+            echo '<td> <button class="delete" id="ID'. $row["villeID"] .'" onClick="removeTown(this.id)"> - </button> </td>';
             echo "</tr>" ;     
          } 
        }
@@ -59,7 +59,7 @@
     echo 'var x = document.getElementById("ville");';
     echo 'x.value = "'. $ville .'";';
     echo 'var y = document.getElementById("departement");';
-    echo 'y.append(new Option("'. $_POST["departement"] .'", "'. $_POST["departement"] .'"));';
+    echo 'y.value = "' . $_POST["departement"] . '";';
     echo 'var z = document.getElementById("commune");';
     echo 'z.append(new Option("'. $_POST["commune"] .'", "'. $_POST["commune"] .'"));';
     echo '</script>';
