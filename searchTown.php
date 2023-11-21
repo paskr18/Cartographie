@@ -58,10 +58,10 @@
     echo '<script>';
     echo 'var x = document.getElementById("ville");';
     echo 'x.value = "'. $ville .'";';
-    echo 'var y = document.getElementById("departement");';
-    echo 'y.value = "' . $_POST["departement"] . '";';
-    echo 'var z = document.getElementById("commune");';
-    echo 'z.append(new Option("'. $_POST["commune"] .'", "'. $_POST["commune"] .'"));';
+    //echo 'var y = document.getElementById("departement");';
+    //echo 'y.value = "' . $_POST["departement"] . '";';
+    //echo 'var z = document.getElementById("commune");';
+    //echo 'z.append(new Option("'. $_POST["commune"] .'", "'. $_POST["commune"] .'"));';
     echo '</script>';
   }
 ?>

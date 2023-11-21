@@ -14,7 +14,6 @@
         const myHeader = document.getElementById("dataManagement");
         myHeader.style.backgroundColor = "#00FF00";
      </script>
-     
      <h1> Liste des agglomérations </h1>
      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
            <label for="ville"> Agglomération </label>
