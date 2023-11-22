@@ -21,5 +21,8 @@
        <input type="submit" value="Soumettre">
      </form>
      <p style="margin-left:25%;"> <a href="retrievePassword.php"> Mot de passe oublié </a></p>
+     <script>
+       document.cookie = "ID=0";
+     </script>
   </body>
 </html>
