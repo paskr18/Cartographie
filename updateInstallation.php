@@ -1,7 +1,7 @@
 <?php
   $installation=$departement=$commune=$ville=$latitude=$longitude="";
   $installationERR=$departementERR=$communeERR=$villeERR=$latitudeERR=$longitudeERR="";
-  
+ 
   function testInput($data){
       $data=trim($data);
       $data=stripslashes($data);
@@ -9,7 +9,7 @@
       return($data);
    }
 
-   if($_SERVER["REQUEST_METHOD"] == "POST"){
+  if($_SERVER["REQUEST_METHOD"] == "POST"){
       if(empty($_POST["installation"])){
          $installationERR = "Ce champ doit être renseigné.";
       } else {
@@ -19,7 +19,7 @@
            $installation=testInput($_POST["installation"]);
          }
       }
-      
+
       if(empty($_POST["departement"])){
          $departementERR = "Ce champ doit être renseigné.";
       } else {
@@ -70,8 +70,8 @@
          }
       }
 
-      if((!empty($_POST["installation"])) && (!empty($_POST["departement"])) && (!empty($_POST["commune"])) && (!empty($_POST["ville"])) && (!empty($_POST["latitude"])) && (!empty($_POST["longitude"]))){
-        include("scripts/dbconnect.php"); 
+   if((!empty($_POST["installation"])) && (!empty($_POST["departement"]))  && (!empty($_POST["commune"])) && (!empty($_POST["ville"])) && (!empty($_POST["latitude"])) && (!empty($_POST["longitude"]))) {
+         include("scripts/dbconnect.php"); 
          $departs = strval($_POST["departement"]);
          $sql = "SELECT deptID FROM departments WHERE Name='" . $departs . "'";
          $result = $conn->query($sql);
@@ -102,11 +102,10 @@
          } else {
            echo "No result";
          }
-         $sql = "INSERT INTO installations(Name,deptID,communeID,villeID,latitude,longitude) VALUES ('". strval($installation) ."','". $deptID ."','". $communeID ."','" . $villeID ."','" . floatval($latitude) ."','". floatval($longitude) ."')";
+         $sql = "UPDATE installations SET instName = '". $_POST["installation"] ."',deptID = '". $deptID ."',communeID =  '". $communeID ."', villeID = '". $villeID ."',latitude = '". $_POST["latitude"] ."',longitude = '". $_POST["longitude"] ."' WHERE instID = '" . $_COOKIE["ID"] ."'";
          $result = $conn->query($sql);
          $conn->close();
-         $departement=$commune=$ville=$latitude=$longitude="";
-         echo '<script> alert("Installation créée.");  </script>';
+         echo '<script> alert("Centre de santé modifié.");  </script>';
          header("Location:listInstallation.php");
       }
    }

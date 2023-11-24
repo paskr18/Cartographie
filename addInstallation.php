@@ -30,7 +30,7 @@
           </select>
            <br>
            <label for="commune"> Région </label> 
-           <select id="commune">
+           <select id="commune" name="commune">
              <script src="scripts/regionsDropdown.js"></script>
            </select>
            <br>
