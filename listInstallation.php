@@ -44,7 +44,7 @@
             echo '<td>' . $row["townName"]. '</td>';
             echo '<td>' . $row["instName"]. '</td>';
             echo '<td> <button class="edit" id="ID'. $row["instID"] .'" onClick="getID(this.id)"> Modifier </button> </td>';
-            echo '<td> <button class="delete" id="ID'. $row["instID"] .'" onClick="removeTown(this.id)"> - </button> </td>';
+            echo '<td> <button class="delete" id="ID'. $row["instID"] .'" onClick="removeInstallation(this.id)"> - </button> </td>';
             echo "</tr>" ;     
          }
        } else {
