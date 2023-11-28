@@ -14,7 +14,7 @@
     $lname = $_POST["lastname"];
     include("scripts/dbconnect.php");
     if((!empty($_POST["user"])) && (empty($_POST["firstname"])) && (empty($_POST["lastname"])) && (empty($_POST["role"]))) {
-      $sql = "SELECT * FROM users WHERE user LIKE '%". $_POST["user"] ."%'";
+      $sql = "SELECT * FROM users WHERE user LIKE '%". $_POST["user"] ."%' ORDER BY user, first_name, last_name, role";
       $result = $conn->query($sql);
       if ($result->num_rows > 0) {
          while ($row = $result->fetch_assoc()){
@@ -29,7 +29,7 @@
          }
       }
     } else if((!empty($_POST["user"])) && (!empty($_POST["firstname"])) && (empty($_POST["lastname"])) && (empty($_POST["role"]))) {
-       $sql = "SELECT * FROM users WHERE user LIKE '%". $_POST["user"] ."%' AND first_name LIKE '%". $_POST["firstname"] ."%'";
+       $sql = "SELECT * FROM users WHERE user LIKE '%". $_POST["user"] ."%' AND first_name LIKE '%". $_POST["firstname"] ."%' ORDER BY user, first_name, last_name, role";
        $result = $conn->query($sql);
        if ($result->num_rows > 0) {
          while ($row = $result->fetch_assoc()){
@@ -44,7 +44,21 @@
          }
        }
     } else if((!empty($_POST["user"])) && (!empty($_POST["firstname"])) && (!empty($_POST["lastname"])) && (empty($_POST["role"]))) {
-       $sql = "SELECT * FROM users WHERE user LIKE '%". $_POST["user"] ."%' AND first_name LIKE '%". $_POST["firstname"] ."%' AND last_name = '". $_POST["lastname"] ."'";
+       $sql = "SELECT * FROM users WHERE user LIKE '%". $_POST["user"] ."%' AND first_name LIKE '%". $_POST["firstname"] ."%' AND last_name = '". $_POST["lastname"] ."' ORDER BY user, first_name, last_name, role";
+       $result = $conn->query($sql);
+       if ($result->num_rows > 0) {
+         while ($row = $result->fetch_assoc()){
+            echo "<tr>" ;
+            echo '<td>' . $row["user"]. '</td>';
+            echo '<td>' . $row["first_name"]. '</td>';
+            echo '<td>' . $row["last_name"]. '</td>';
+            echo '<td>' . $row["role"]. '</td>';
+            echo '<td> <button class="edit" id="ID'. $row["ID"] .'" onClick="getID(this.id)"> Modifier </button> </td>';
+            echo '<td> <button class="delete" id="ID'. $row["ID"] .'" onClick="removeUser(this.id)"> - </button> </td>';
+            echo "</tr>" ;     
+         }
+       } else if((!empty($_POST["user"])) && (!empty($_POST["firstname"])) && (!empty($_POST["lastname"])) && (!empty($_POST["role"]))) {
+       $sql = "SELECT * FROM users WHERE user LIKE '%". $_POST["user"] ."%' AND first_name LIKE '%". $_POST["firstname"] ."%' AND last_name = '". $_POST["lastname"] ."' AND role = '". $_POST["role"]."' ORDER BY user, first_name, last_name, role";
        $result = $conn->query($sql);
        if ($result->num_rows > 0) {
          while ($row = $result->fetch_assoc()){
@@ -70,5 +84,6 @@
     //echo 'var w = document.getElementById("role");';
     //echo 'w.value = "'. $_POST["role"] .'";';
     echo '</script>';
+  } 
   }
 ?>

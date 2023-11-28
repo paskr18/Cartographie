@@ -34,7 +34,7 @@
      <tr><th> Utilisateur </th> <th> Prénom </th> <th> Nom </th> <th> Rôle </th> <th> Modifier </th> <th> Supprimer </th></tr>
      <?php
        include("scripts/dbconnect.php");
-       $sql = "SELECT * FROM users";
+       $sql = "SELECT * FROM users ORDER BY user, first_name, last_name, role";
        $result = $conn->query($sql);
        if ($result->num_rows > 0) {
          while ($row = $result->fetch_assoc()){

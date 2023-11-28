@@ -82,7 +82,7 @@
       $result = $conn->query($sql);
       $conn->close();
       $firstName=$lastName=$user=$password=$passwordConfirm=$email="";
-      echo '<script> alert("Utilisateur créé.");  </script>';
+      echo '<script> alert("Utilisateur créé.");</script>';
       header("Location:listUser.php");
     }
   } 
